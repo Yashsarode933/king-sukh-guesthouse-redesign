@@ -3,7 +3,7 @@
 **Project ID:** 78GRB6TY2D  
 **Developer:** [Your Name Here]  
 **Old Site:** https://www.kingsukhguesthouse.com/  
-**New Site:** https://kingsukhguesthouseredesign.vercel.app/
+**New Site:** https://king-sukh-guesthouse-redesign.vercel.app/
 
 ### 📌 Project Overview
 
