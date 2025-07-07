@@ -33,9 +33,22 @@ This project is a complete, from-scratch redesign of the King Sukh Guest House w
 
 The project uses the standard Next.js 13+ App Router structure for clear organization.
 
+```bash
 king-sukh-redesign/
 │
 ├── app/
+│   ├── contact/
+│   │   ├── page.js
+│   │   └── Contact.module.css
+│   │
+│   ├── gallery/
+│   │   ├── page.js
+│   │   └── Gallery.module.css
+│   │
+│   └── rooms/
+│       ├── page.js
+│       └── Rooms.module.css
+│   │
 │   ├── favicon.ico
 │   ├── globals.css
 │   ├── layout.js
@@ -65,6 +78,7 @@ king-sukh-redesign/
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ### 🚀 Getting Started
 
