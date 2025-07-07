@@ -1,33 +1,33 @@
+/* app/globals.css */
+
+/* Import a professional font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Define CSS Variables for our color palette for easy reuse */
+/* In your global CSS file (e.g., globals.css) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #6096BA;      /* Muted Cadet Blue - Calm and professional */
+  --accent-color: #E57373;       /* Soft Coral - A friendly, welcoming call-to-action */
+  --text-dark: #274C77;          /* Deep Sapphire Blue - Softer than black, very readable */
+  --bg-cards: #FFFFFF;           /* Crisp White - Emphasizes cleanliness */
+  --bg-section: #E7ECEF;         /* Light Blue-Grey - A subtle, cool, and airy background */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Basic CSS Reset */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif; /* Apply our chosen font globally */
 }
 
 a {
@@ -35,8 +35,7 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.page-body {
+  /* This pushes all content down by 80px, creating space for our fixed navbar */
+  padding-top: 110px;
 }

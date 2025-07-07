@@ -1,0 +1,81 @@
+/* components/Navbar.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  /* Change: Switched to a crisp white background for a cleaner, more modern look. */
+  background-color: var(--bg-cards);
+  /* Change: A much softer, blue-tinted shadow for a professional feel. */
+  box-shadow: 0 2px 8px rgba(12, 60, 120, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color 0.3s ease; /* Smooth transition for potential future effects */
+}
+
+.logoContainer {
+  cursor: pointer;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.navLink a {
+  /* Change: Reduced font-weight for a more elegant, less heavy appearance. */
+  font-weight: 600; /* SemiBold is a great choice here */
+  color: var(--text-dark);
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative; /* For a more advanced hover effect */
+}
+
+/* This is a nice effect for nav links */
+.navLink a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navLink a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* The hover color change on the text itself can be removed if using the effect above */
+.navLink a:hover {
+  color: var(--primary-color);
+  /* border-bottom-color: var(--primary-color); - This is replaced by the ::after element */
+}
+
+.contactButton {
+  padding: 0.7rem 1.5rem;
+  background-color: var(--primary-color); /* This is a good choice for a secondary CTA */
+  color: var(--bg-cards);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Change: Matching the font-weight to the links for consistency. */
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.contactButton:hover {
+  /* Change: A more noticeable hover effect by darkening the button. */
+  background-color: #5182a4; /* Darker Muted Cadet Blue */
+  transform: scale(1.05);
+}

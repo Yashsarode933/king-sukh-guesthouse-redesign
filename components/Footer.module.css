@@ -1,0 +1,106 @@
+/* components/Footer.module.css */
+.footer {
+  /* Change: The background is now the deep, professional sapphire blue from your palette. */
+  background-color: var(--text-dark);
+  /* Change: A slightly transparent white is softer and more elegant than #ccc. */
+  color: rgba(255, 255, 255, 0.8);
+  padding-top: 5rem;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footerColumn h3 {
+  color: var(--bg-cards); /* This is correct (white) */
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Underline effect for column titles */
+.footerColumn h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-color); /* This is already using the correct blue */
+}
+
+.footerColumn p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  /* This will inherit the new soft white color from .footer */
+}
+
+.footerColumn ul {
+  list-style: none;
+}
+
+.footerColumn li {
+  margin-bottom: 0.8rem;
+}
+
+.footerColumn a {
+  /* Change: Inherit the new default text color for consistency. */
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.footerColumn a:hover {
+  color: var(--primary-color); /* The hover color is already correct */
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcons a {
+  /* Change: Inherit the new default text color for consistency. */
+  color: inherit;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: var(--primary-color); /* The hover color is already correct */
+  transform: scale(1.1);
+}
+
+.subFooter {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  /* Change: A subtle, on-brand divider using a transparent version of the primary color. */
+  border-top: 1px solid rgba(96, 150, 186, 0.2);
+}
+
+/* Media Query for mobile */
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footerColumn h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Media Query for tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

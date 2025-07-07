@@ -1,168 +1,595 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
+/* app/page.module.css */
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  min-height: 100vh;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+/* ===== HERO SECTION STYLES ===== */
+.hero {
+  position: relative;
+  height: 90vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  text-align: center;
+  color: var(--bg-cards); /* Change: Text on a dark image should be white for contrast */
+  background-image: url('/assets/header.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Change: A deep blue overlay is more on-brand than black. It enhances the coastal feel. */
+  background-color: rgba(39, 76, 119, 0.6); /* This is the RGB of var(--text-dark) with opacity */
+  z-index: 1;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1rem;
 }
 
-.footer {
-  grid-row-start: 3;
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.heroButton {
+  padding: 1rem 2.5rem;
+  /* Change: The main button uses the accent color for a friendly "call to action". */
+  background-color: var(--accent-color);
+  color: var(--bg-cards);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.heroButton:hover {
+  /* Change: A subtle, darker shade of the accent color on hover is a modern touch. */
+  background-color: #D85D5D; /* A slightly darker Soft Coral */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MEDIA QUERY FOR RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroButton {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===== GENERAL SECTION STYLES ===== */
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-dark); /* This automatically uses the new Deep Sapphire Blue */
+  margin-bottom: 1rem;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  /* Change: Replaced hardcoded grey with the consistent, readable text-dark color. */
+  color: var(--text-dark); 
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  opacity: 0.85; /* Slight opacity softens the dark text for paragraphs */
+}
+
+
+/* ===== WELCOME SECTION STYLES ===== */
+.welcomeSection {
   display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
+  /* Change: This uses the new light, airy background color. */
+  background-color: var(--bg-section);
   align-items: center;
-  gap: 8px;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
-.footer img {
-  flex-shrink: 0;
+.welcomeImage {
+  width: 50%;
+  min-height: 60vh;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.welcomeContent {
+  width: 50%;
+  padding: 4rem;
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+.welcomeButton {
+  padding: 0.8rem 2rem;
+  background-color: transparent;
+  /* Change: The secondary "ghost" button uses the calm primary color. */
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.welcomeButton:hover {
+  /* Change: Hover fills the button with the calm primary color. */
+  background-color: var(--primary-color);
+  color: var(--bg-cards);
+}
+
+
+/* ===== MEDIA QUERY FOR RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+  /* ... your existing hero styles from the media query above should be here ... */
+
+  .welcomeSection {
+    flex-direction: column;
+    padding: 3rem 0; /* Adjust padding for mobile */
   }
 
-  .main {
-    align-items: center;
+  .welcomeImage,
+  .welcomeContent {
+    width: 100%;
   }
 
-  .main ol {
+  .welcomeContent {
+    padding: 2rem 1.5rem;
     text-align: center;
   }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}
 
-  .ctas {
+/* ===== ROOMS SECTION STYLES ===== */
+.roomsPageContainer {
+  /* Apply: The light, airy background for the entire page. */
+  background-color: var(--bg-section);
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.roomsPageHeader {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--text-dark);
+  color: var(--bg-cards); /* Default text color within the header is white */
+}
+
+.roomsPageTitle {
+  font-size: 3rem;
+  /* Change: The title on a dark background must be light for contrast. */
+  color: var(--bg-cards);
+  margin-bottom: 0.5rem;
+}
+
+.roomsPageSubtitle {
+  font-size: 1.1rem;
+  /* Change: Use white with opacity to be less prominent than the title. */
+  color: var(--bg-cards);
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.roomsList {
+  max-width: 1100px;
+  margin: -2rem auto 0;
+  padding: 4rem 5%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Increased gap slightly for more breathing room */
+}
+
+.roomListing {
+  display: flex;
+  background-color: var(--bg-cards); /* Apply: Cards are crisp white. */
+  border-radius: 8px;
+  overflow: hidden;
+  /* Change: A more subtle shadow using a blue tint from our palette. */
+  box-shadow: 0 5px 25px rgba(39, 76, 119, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roomListing:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(39, 76, 119, 0.15);
+}
+
+.roomImageContainer {
+  position: relative;
+  min-width: 40%;
+}
+
+.roomDetails {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.roomName {
+  font-size: 1.8rem;
+  color: var(--text-dark); /* Apply: Consistent dark blue for titles. */
+  margin-bottom: 1rem;
+}
+
+.roomDescription {
+  /* Apply: Consistent dark blue for text, with opacity to soften it. */
+  color: var(--text-dark);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.amenities h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark); /* Explicitly set color for consistency */
+}
+
+.amenities ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.amenities li {
+  /* Apply: Amenity tags use the section background for a cohesive look. */
+  background-color: var(--bg-section);
+  color: var(--text-dark); /* Text inside should be our main dark text color. */
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.roomBooking {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Change: Use the subtle section background for the divider line. */
+  border-top: 1px solid var(--bg-section);
+  padding-top: 1.25rem;
+}
+
+.roomPrice {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-dark); /* Change: Use consistent text color instead of black. */
+}
+
+.roomPrice span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.bookNowButton {
+  padding: 0.8rem 1.8rem;
+  /* Change: This is the most important action, so it uses the ACCENT color. */
+  background-color: var(--accent-color);
+  color: var(--bg-cards);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bookNowButton:hover {
+  /* Change: A subtle brightness increase is a great hover effect for accent colors. */
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+  .roomsPageTitle { /* Changed from .pageTitle for consistency */
+    font-size: 2rem;
+  }
+  
+  .roomListing {
     flex-direction: column;
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .roomImageContainer {
+    width: 100%;
+    height: 250px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+/* ===== GALLERY SECTION STYLES ===== */
+.galleryPageContainer {
+  /* Apply: The light, airy background for the entire page. */
+  background-color: var(--bg-section);
+  min-height: 100vh;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.galleryPageHeader {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  /* Apply: The deep sapphire blue provides a classy, nautical header. */
+  background-color: var(--text-dark);
+}
+
+.galleryPageTitle {
+  font-size: 3rem;
+  /* Change: The title must be a light color for contrast against the dark header. */
+  color: var(--bg-cards);
+  margin-bottom: 0.5rem;
+}
+
+.galleryPageSubtitle {
+  font-size: 1.1rem;
+  /* Change: Use white with opacity to be less prominent than the title. */
+  color: var(--bg-cards);
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fullGalleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem; /* Increased gap slightly for better separation */
+  padding: 4rem 5%;
+  max-width: 1600px;
+  margin: -2rem auto 0; /* Pulls the grid up over the header slightly */
+  position: relative; /* Needed for z-index */
+  z-index: 2;
+}
+
+.fullGalleryItem {
+  position: relative;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  /* Change: A more subtle shadow using a blue tint from our palette. */
+  box-shadow: 0 4px 15px rgba(39, 76, 119, 0.1);
+  /* Added a subtle border to help define images on light backgrounds */
+  border: 1px solid #dde3e6;
+}
+
+.fullGridImage {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+.fullGalleryItem:hover .fullGridImage {
+  transform: scale(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Change: The overlay uses the PRIMARY brand color for a cohesive look. */
+  background: linear-gradient(0deg, rgba(96, 150, 186, 0.7) 0%, rgba(96, 150, 186, 0.5) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bg-cards); /* Use variable for white text */
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.fullGalleryItem:hover .imageOverlay {
+  opacity: 1;
+}
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+  /* Fix: Use the correct class name for consistency */
+  .galleryPageTitle {
+    font-size: 2.5rem;
+  }
+
+  /* Fix: Use the correct class name for consistency */
+  .fullGalleryGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 2rem 1rem;
+    margin-top: 0; /* Remove the negative margin on mobile */
+  }
+}
+
+/* ===== CONTACT SECTION STYLES ===== */
+.contactPageContainer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: var(--bg-section); /* This is already correct */
+}
+
+.contactPageHeader {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--text-dark); /* This is correct */
+  background-size: cover;
+  background-position: center;
+  color: var(--bg-cards);
+}
+
+.contactPageTitle {
+  font-size: 3rem;
+  /* Change: Title on dark background must be a light color for contrast. */
+  color: var(--bg-cards);
+  margin-bottom: 0.5rem;
+}
+
+.contactPageSubtitle {
+  font-size: 1.1rem;
+  /* Change: Subtitle also needs to be a light color. Opacity makes it secondary. */
+  color: var(--bg-cards);
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: -2rem auto 0; /* Pulls content up over the header */
+  padding: 5rem 5%;
+  position: relative; /* Needed for z-index */
+  z-index: 2;
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoBlock {
+  background: var(--bg-cards);
+  padding: 1.5rem;
+  border-radius: 8px;
+  /* Change: Use the consistent, blue-tinted shadow */
+  box-shadow: 0 5px 25px rgba(39, 76, 119, 0.08);
+}
+
+.infoBlock h3 {
+  /* This is a great use of the primary color for a heading */
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.infoBlock p {
+  color: var(--text-dark); /* This is correct */
+  opacity: 0.8; /* Soften paragraph text slightly */
+  line-height: 1.6;
+}
+
+.mapContainer {
+  border-radius: 8px;
+  overflow: hidden;
+  /* Change: Use the consistent, blue-tinted shadow */
+  box-shadow: 0 5px 25px rgba(39, 76, 119, 0.1);
+}
+
+/* Form Styles */
+.formColumn {
+  background-color: var(--bg-cards);
+  padding: 2.5rem;
+  border-radius: 8px; /* Slightly more rounded corners for a softer look */
+  /* Change: Use the consistent, blue-tinted shadow */
+  box-shadow: 0 5px 25px rgba(39, 76, 119, 0.1);
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark); /* This is correct */
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.8rem;
+  /* Change: Use a subtle border color from our palette */
+  border: 1px solid var(--bg-section);
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fcfdff; /* A very slightly off-white for inputs */
+  box-shadow: 0 0 0 3px rgba(96, 150, 186, 0.1);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  /* Change: The focus ring must use the primary blue, not old gold */
+  box-shadow: 0 0 0 3px rgba(96, 150, 186, 0.3);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  /* Apply: The primary blue is perfect for a secondary action like 'Send Message'. */
+  background-color: var(--primary-color);
+  color: var(--bg-cards);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  /* Change: The hover state should be a darker shade of the primary blue. */
+  background-color: #5182a4; /* Darker Muted Cadet Blue */
+}
+
+/* Media Query */
+@media (max-width: 900px) {
+  .contactLayout {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    margin-top: 2rem;
+  }
+  
+  /* Fix: Use the correct class name for consistency */
+  .contactPageTitle {
+    font-size: 2.5rem;
   }
 }
