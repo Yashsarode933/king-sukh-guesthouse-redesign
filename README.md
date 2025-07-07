@@ -32,7 +32,8 @@ This project is a complete, from-scratch redesign of the King Sukh Guest House w
 ### 📁 Folder Structure
 
 The project uses the standard Next.js 13+ App Router structure for clear organization.
-/king-sukh-redesign
+
+king-sukh-redesign
 │
 ├── app/ # Main application folder (App Router)
 │ ├── page.js # Homepage
@@ -55,7 +56,6 @@ The project uses the standard Next.js 13+ App Router structure for clear organiz
 │ └── assets/ # Images and logos
 │
 └── package.json # Project dependencies and scripts
-
 
 ### 🚀 Getting Started
 
