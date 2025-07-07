@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🏨 **King Sukh Guest House – Website Redesign**
+***
+**Project ID:** 78GRB6TY2D  
+**Developer:** [Your Name Here]  
+**Old Site:** https://www.kingsukhguesthouse.com/  
+**New Site:** https://kingsukhguesthouseredesign.vercel.app/
 
-## Getting Started
+### 📌 Project Overview
 
-First, run the development server:
+This project is a complete, from-scratch redesign of the King Sukh Guest House website. The primary objective was to transform the original, outdated site into a modern, visually appealing, and fully responsive web application. By leveraging the power of Next.js, the new site offers a significantly improved user experience, faster performance, and a codebase that is scalable and maintainable.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🎨 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   ✅ **Modern UI/UX:** Clean, elegant design with a professional color palette and typography.
+-   ✅ **Fully Responsive:** Flawless viewing experience across mobile, tablet, and desktop devices.
+-   ✅ **Optimized Performance:** Built with Next.js for fast page loads and automatic image optimization.
+-   ✅ **Enhanced Navigation:** A sticky navigation bar that remains visible on scroll, with smooth-scrolling anchor links for easy navigation.
+-   ✅ **Interactive Gallery:** A beautiful image gallery featuring a full-screen, clickable lightbox for an immersive viewing experience.
+-   ✅ **Component-Based Architecture:** Built with reusable React components for consistency and scalability.
+-   ✅ **Dynamic Data:** Centralized data files for easy management of rooms and gallery images.
+-   ✅ **Functional Contact Form:** A clean and user-friendly contact form with basic client-side validation.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🧰 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   **Framework:** [Next.js](https://nextjs.org/) (React Framework for Production)
+-   **UI Library:** [React.js](https://reactjs.org/)
+-   **Styling:** [CSS Modules](https://github.com/css-modules/css-modules) (for component-scoped, conflict-free styles)
+-   **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+-   **Image Lightbox:** [yet-another-react-lightbox](https://yet-another-react-lightbox.com/)
+-   **Deployment:** [Vercel](https://vercel.com/)
 
-## Learn More
+### 📁 Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+The project uses the standard Next.js 13+ App Router structure for clear organization.
+/king-sukh-redesign
+│
+├── app/ # Main application folder (App Router)
+│ ├── page.js # Homepage
+│ ├── layout.js # Root layout
+│ ├── globals.css # Global styles
+│ ├── rooms/ # Rooms page
+│ │ ├── page.js
+│ │ └── Rooms.module.css
+│ └── ... (gallery, contact pages)
+│
+├── components/ # Reusable React components
+│ ├── Navbar.js
+│ └── Footer.js
+│
+├── data/ # Centralized data files
+│ ├── roomData.js
+│ └── galleryData.js
+│
+├── public/ # Static assets
+│ └── assets/ # Images and logos
+│
+└── package.json # Project dependencies and scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🚀 Getting Started
 
-## Deploy on Vercel
+To get a local copy up and running, follow these simple steps.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/[your-github-username]/king-sukh-guesthouse-redesign.git
+    ```
+2.  **Navigate to the project directory:**
+    ```sh
+    cd king-sukh-guesthouse-redesign
+    ```
+3.  **Install NPM packages:**
+    ```sh
+    npm install
+    ```
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🧩 Maintenance Guide
+
+-   **Add new images:** Place them in the `/public/assets/` folder. To add them to the gallery, update the array in `/data/galleryData.js`.
+-   **Update room details:** Modify the room objects in the `/data/roomData.js` file.
+-   **Change page content:** Edit the JSX in the relevant `page.js` file within the `/app` directory.
+-   **Adjust styles:** Find the corresponding `.module.css` file for the component or page you wish to change. Global styles are in `app/globals.css`.
+
+### 🐞 Challenges Faced & Solutions
+
+| Challenge                                       | Solution                                                                                                   |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Original site was not mobile-friendly           | Implemented a mobile-first approach using CSS Grid, Flexbox, and media queries within CSS Modules.           |
+| Managing image optimization and loading speed   | Leveraged Next.js's built-in `<Image>` component for automatic optimization, resizing, and lazy loading.     |
+| Creating a maintainable styling system          | Used CSS Modules to scope styles to individual components, preventing class name conflicts.                |
+| Implementing a functional image gallery         | Integrated the `yet-another-react-lightbox` library and managed its state with React's `useState` hook.    |
+| Ensuring consistent navigation across all pages | Created a reusable `<Navbar />` component and made it sticky using `position: fixed` and global CSS padding. |
+
+### 📄 Future Enhancements
+
+-   **Integrate a Headless CMS:** Use a CMS like Sanity or Strapi to allow for dynamic content updates without touching the code.
+-   **Real Booking System:** Develop a backend and database to handle real-time room bookings and availability.
+-   **Advanced Animations:** Incorporate libraries like `Framer Motion` to add on-scroll reveal animations and more complex transitions.
+-   **Enhanced SEO:** Implement dynamic metadata generation for each page to improve search engine visibility.
